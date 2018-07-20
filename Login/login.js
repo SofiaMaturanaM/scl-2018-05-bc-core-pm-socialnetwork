@@ -23,10 +23,13 @@ function loginWithFirebase() {
     firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
             console.log("Usuario inició sesión con éxito");
+            alert("¡Has iniciado sesión con éxito, bienvenid@!");
         })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code); //error.code nos mostrará el código de error para informarnos qué pasó
+            alert("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message); //error.message nos mostrará el mensaje de firebase del mismo error
+            alert("Error de firebase > Mensaje > " + error.message);
         });
 }
 
