@@ -135,3 +135,7 @@ We decided to integrate our Login with both Google and Facebook using Firebase.
 After that, we began fleshing out the functionalities and writing the tests for them,  and testing as we went that things were working as they are supposed to.
 
 Organisation-wise, we turned to pen and paper initially, but once we had the main structure more or less defined, we used a Trello board to keep track of what we needed to do.  
+
+#Prototypes:
+Low fidelity: https://marvelapp.com/3aeb8hj
+High fidelity: https://marvelapp.com/3208059
