@@ -7,14 +7,18 @@ const timelineFunctions = require('./timelineFunctions')
 describe('newPost()', () => {
     it('should add a new post to the timeline', () => {
 
+
+
     })
     it('should not allow empty post', () => {
 
     })
 });
 
-describe('newComment', () => {
-    it('should add a new comment on a post', () => {
+
+describe('newComment',()=>{
+  it('should add a new comment to a post',()=>{
+
 
     })
 });
