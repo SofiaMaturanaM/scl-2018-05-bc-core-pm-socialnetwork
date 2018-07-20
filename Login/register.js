@@ -19,5 +19,5 @@ function registerWithFirebase() {
 }
 
 function redirectFromLogin() {
-    location.href = "Timeline/timelineIndex.html";
+    location.href = "/Timeline/timelineIndex.html";
 }
