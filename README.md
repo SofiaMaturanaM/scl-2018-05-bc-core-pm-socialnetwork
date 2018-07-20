@@ -138,4 +138,4 @@ Organisation-wise, we turned to pen and paper initially, but once we had the mai
 
 #Prototypes:
 Low fidelity: https://marvelapp.com/3aeb8hj
-High fidelity: https://marvelapp.com/3208059
+High fidelity: https://marvelapp.com/project/3208059/
