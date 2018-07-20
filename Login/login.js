@@ -1,20 +1,3 @@
-// window.onload = () => {
-
-//     firebase.auth().onAuthStateChanged((user) => {
-//         if (user) { //Si está logeado, mostraremos la opción loggedIn
-//             loggedIn.style.display = "block";
-//             loggedOut.style.display = "none";
-//             username.innerText = user.displayName;
-//         } else { //Si NO está logeado, mostraremos la opción loggedOut
-//             loggedIn.style.display = "none";
-//             loggedOut.style.display = "block";
-//         }
-//         console.log("User > " + JSON.stringify(user));
-//     });
-
-
-// }
-
 //Login with email and password
 function loginWithFirebase() {
     const emailValue = userEmail.value;
@@ -24,6 +7,7 @@ function loginWithFirebase() {
         .then(() => {
             console.log("Usuario inició sesión con éxito");
             alert("¡Has iniciado sesión con éxito, bienvenid@!");
+            redirectFromLogin()
         })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code); //error.code nos mostrará el código de error para informarnos qué pasó
@@ -48,6 +32,7 @@ function googleLoginWithFirebase() {
         // The signed-in user info.
         var user = result.user;
         console.log
+        redirectFromLogin()
             // ...
     }).catch(function(error) {
         // Handle Errors here.
@@ -72,6 +57,7 @@ function facebookLoginWithFirebase() {
     firebase.auth().signInWithPopup(provider)
         .then(() => {
             console.log("Login con facebook exitoso");
+            redirectFromLogin()
         })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code); //error.code nos mostrará el código de error para informarnos qué pasó
@@ -79,26 +65,26 @@ function facebookLoginWithFirebase() {
         });
 }
 
-document.getElementById("login").onclick = function(email, password) {
-    let userEmailInput = document.getElementById("userEmail").value;
-    let userPasswordInput = document.getElementById("userPassword").value;
-    if (validateEmailAndPassword(userEmailInput, userPasswordInput)) {
-        let userName = document.getElementById("user-name").value;
-        localStorage.setItem("user-name", userName);
-        document.getElementById("user-name").innerHTML = "Mia";
-        location = "timelineIndex.html";
-    } else {
-        alert("Invalid username or password")
-    }
-}
+// document.getElementById("login").onclick = function(email, password) {
+//     let userEmailInput = document.getElementById("userEmail").value;
+//     let userPasswordInput = document.getElementById("userPassword").value;
+//     if (validateEmailAndPassword(userEmailInput, userPasswordInput)) {
+//         let userName = document.getElementById("user-name").value;
+//         localStorage.setItem("user-name", userName);
+//         document.getElementById("user-name").innerHTML = "Mia";
+//         location = "timelineIndex.html";
+//     } else {
+//         alert("Invalid username or password")
+//     }
+// }
 
-function validateEmailAndPassword(email, password) {
-    if (defaultUserEmail === email && defaultUserPassword === password) {
-        return true;
-    } else {
-        return false;
-    }
-}
+// function validateEmailAndPassword(email, password) {
+//     if (defaultUserEmail === email && defaultUserPassword === password) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 function isValidEmailFormat(userInput) {
     if (userInput.includes("@")) {
@@ -124,4 +110,8 @@ function isInteger(userInput) {
     let inputIsANumber = parseInt(userInput) != NaN;
     let inputIsAnInteger = userInput % 1 === 0;
     return inputIsANumber && inputIsAnInteger;
+}
+
+function redirectFromLogin() {
+    location.href = "/Timeline/timelineIndex.html";
 }
